@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 
+import Login from './components/Login/Login';
 import ProductsList from './components/ProductsList/ProductsList';
 
 function App() {
@@ -11,10 +12,10 @@ function App() {
           Test
         </p>
         <a>
-          Login
+          <Login/>
         </a>
 
-        <ProductsList name="lista teste"></ProductsList>
+        {/* <ProductsList name="lista teste"/> */}
       </header>
     </div>
   );
