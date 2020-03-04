@@ -1,0 +1,14 @@
+{
+    "enUS": {
+        "translation": {
+          "welcome.title": "Welcome",
+          "productsList.title": "Products"
+        }
+      },
+      "ptBR": {
+        "translation": {
+          "welcome.title": "Bem-vindo",
+          "productsList.title": "Produtos"
+        }
+      }
+}

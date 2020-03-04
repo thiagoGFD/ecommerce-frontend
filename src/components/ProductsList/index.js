@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 import productService from '../../services/ProductService';
 
+import { useTranslation } from 'react-i18next';
+
 function ProductsList(props) {
-  const [products, setProducts] = useState([]);  
+  const [products, setProducts] = useState([]);
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     productService.getProducts().then(({ data }) => {
@@ -16,7 +19,7 @@ function ProductsList(props) {
 
   return (
     <div className="shopping-list">
-      <h1>ProductsList for {props.name}</h1>
+      <h1>{t('productsList.title')}</h1>
       <ul>
         {products.map(product => {
           return <li>{product.name}</li>;
