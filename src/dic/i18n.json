@@ -2,12 +2,14 @@
     "enUS": {
         "translation": {
           "welcome.title": "Welcome",
+          "welcome.linkProducts": "See products",
           "productsList.title": "Products"
         }
       },
       "ptBR": {
         "translation": {
           "welcome.title": "Bem-vindo",
+          "welcome.linkProducts": "Ver produtos",
           "productsList.title": "Produtos"
         }
       }

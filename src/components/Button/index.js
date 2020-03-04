@@ -1,9 +1,10 @@
 import React from "react";
+import './Button.css';
 
 function Button() {
   return (
         <React.Fragment>
-          <button type="submit" onClick="{() => console.log('bla')}" >Send</button>          
+          <button class="r-button" type="submit" onClick="{() => console.log('bla')}" >SignIn</button>          
         </React.Fragment>
   )
 }
