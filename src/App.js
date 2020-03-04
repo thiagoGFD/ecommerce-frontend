@@ -12,10 +12,10 @@ function App() {
           Test
         </p>
         <a>
-          <Login/>
+          {/* <Login/> */}
         </a>
 
-        {/* <ProductsList name="lista teste"/> */}
+        <ProductsList name="lista teste" />
       </header>
     </div>
   );

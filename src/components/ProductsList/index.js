@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-function ProductsList() {
+import productService from '../../services/ProductService';
+
+function ProductsList(props) {
+  const [products, setProducts] = useState([]);  
+
+  useEffect(() => {
+    productService.getProducts().then(({ data }) => {
+      setProducts(data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  });
+
   return (
     <div className="shopping-list">
-      <h1>ProductsList for {this.props.name}</h1>
+      <h1>ProductsList for {props.name}</h1>
       <ul>
-        <li>p1</li>
-        <li>p2</li>
-        <li>p3</li>
+        {products.map(product => {
+          return <li>{product.name}</li>;
+        })}
       </ul>
     </div>
   );
