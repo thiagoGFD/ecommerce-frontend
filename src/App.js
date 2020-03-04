@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 
-import Login from './components/Login/Login';
-import ProductsList from './components/ProductsList/ProductsList';
+import Login from './components/Login';
+import ProductsList from './components/ProductsList';
 
 function App() {
   return (

@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from "../Button";
 
 class Login extends React.Component {
 
@@ -12,7 +13,7 @@ class Login extends React.Component {
           <h3>Sign In</h3>
           <input label="name" type="text" />
           <input label="password" type="text" />
-          <button type="submit">Send</button>
+          <Button>bla</Button>
           
         </React.Fragment>
       );
