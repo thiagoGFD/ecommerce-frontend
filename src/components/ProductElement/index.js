@@ -20,7 +20,7 @@ function ProductElement({product}) {
   }
 
   return (
-    <li key={product._id}>
+    <li>
       <CustomPlaceholder width={100} height={100} />
       <span>{product.name}</span>
       <Button label={t('productElement.add')} handleClick={()=>{addProduct(product)}}/>

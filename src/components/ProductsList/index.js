@@ -16,14 +16,14 @@ function ProductsList() {
     .catch(function (error) {
       console.log(error);
     });
-  });
+  }, []);
 
   return (
     <div className="shopping-list">
       <h1>{t('productsList.title')}</h1>
       <ul className="products-container no-list-style">
         {products.map(product => {
-          return <ProductElement product={product} />;
+          return <ProductElement product={product} key={product._id} />;
         })}
       </ul>
     </div>
