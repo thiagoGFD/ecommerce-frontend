@@ -1,0 +1,17 @@
+.products-container {
+    display: grid;
+    grid-column-gap: 48px;
+    grid-template-columns: auto auto auto;
+    margin: 12px;
+}
+/* mudar para scss aninhado */
+.products-container > li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.products-container > li > * {
+    margin-bottom: 6px;
+}

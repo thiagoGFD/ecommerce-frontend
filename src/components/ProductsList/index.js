@@ -4,6 +4,8 @@ import Button from "../Button";
 import productService from '../../services/ProductService';
 
 import { useTranslation } from 'react-i18next';
+import { CustomPlaceholder } from 'react-placeholder-image';
+
 
 function ProductsList(props) {
   const [products, setProducts] = useState([]);
@@ -21,7 +23,7 @@ function ProductsList(props) {
   });
 
   const addProduct = (product) => {
-    console.log('product' , product)
+    console.log('product added ' , product)
     setCartProducts([
       ...cartProducts,
       product
@@ -31,9 +33,10 @@ function ProductsList(props) {
   return (
     <div className="shopping-list">
       <h1>{t('productsList.title')}</h1>
-      <ul className="no-list-style">
+      <ul className="products-container no-list-style">
         {products.map(product => {
           return <li key={product._id}>
+              <CustomPlaceholder width={100} height={100} />
               <span>{product.name}</span>
               <Button label={t('productsList.add')} handleClick={()=>{addProduct(product)}}/>
             </li>;

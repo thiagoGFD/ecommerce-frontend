@@ -12,4 +12,5 @@ code {
     monospace;
 }
 
-@import './styles/utilities/index.css'
+@import './styles/components/products-container.css';
+@import './styles/utilities/index.css';

@@ -9,7 +9,7 @@ import './Button.css';
  */
 const Button = ({ label, handleClick }) => {
   return (
-    <button className="r-button" type="submit" onClick={() => handleClick} >{label}</button>
+    <button className="r-button" type="submit" onClick={handleClick} >{label}</button>
   )
 }
 
