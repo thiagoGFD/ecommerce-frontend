@@ -5,7 +5,7 @@
           "welcome.linkProducts": "See products",
           "login.signin": "Sign In",
           "productsList.title": "Products",
-          "productsList.add": "Add to Cart",
+          "productElement.add": "Add to Cart",
           "cart.title": "Cart",
           "cart.checkout": "Checkout",
           "cart.remove": "Remove"
@@ -17,7 +17,7 @@
           "welcome.linkProducts": "Ver produtos",
           "login.signin": "Conectar",
           "productsList.title": "Produtos",
-          "productsList.add": "Adicionar ao Carrinho",
+          "productElement.add": "Adicionar ao Carrinho",
           "cart.title": "Carrinho",
           "cart.checkout": "Comprar",
           "cart.remove": "Remover"
