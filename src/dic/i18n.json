@@ -3,14 +3,20 @@
         "translation": {
           "welcome.title": "Welcome",
           "welcome.linkProducts": "See products",
-          "productsList.title": "Products"
+          "login.signin": "Sign In",
+          "productsList.title": "Products",
+          "cart.title": "Cart",
+          "cart.checkout": "Checkout"
         }
       },
       "ptBR": {
         "translation": {
           "welcome.title": "Bem-vindo",
           "welcome.linkProducts": "Ver produtos",
-          "productsList.title": "Produtos"
+          "login.signin": "Conectar",
+          "productsList.title": "Produtos",
+          "cart.title": "Carrinho",
+          "cart.checkout": "Comprar"
         }
       }
 }
