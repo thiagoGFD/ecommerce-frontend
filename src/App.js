@@ -5,9 +5,10 @@ import { useTranslation } from 'react-i18next';
 
 import Login from './components/Login';
 import ProductsList from './components/ProductsList';
+import Cart from './components/Cart';
 
 function App() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div className="App">

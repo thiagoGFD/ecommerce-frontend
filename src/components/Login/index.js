@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from "../Button";
 import { useTranslation } from 'react-i18next';
 
 function Login() {
-  const [state, setState] = useState(0);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <React.Fragment>

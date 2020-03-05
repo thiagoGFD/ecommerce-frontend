@@ -1,19 +1,28 @@
 import Button from '..';
-import { render } from '@testing-library/react';
+import React from "react";
+import { render, act } from '@testing-library/react';
 
 const label = 'OK';
-let wrapped;
+// let wrapped;
 
-beforeEach(() => {
-  wrapped = mount(<Button label={label} onClick={() => {}} />);
-});
+// beforeEach(() => {
+//   wrapped = mount(<Button label={label} onClick={() => {}} />);
+// });
 
-afterEach(() => {
-  wrapped.unmount();
-});
+// afterEach(() => {
+//   wrapped.unmount();
+// });
 
 
 it('should have innerText equals label property', () => {
-  const text = wrapped.find('span').text();
-  expect(text).toEqual(label);
+  const { getByText } = render(<Button label={label}/>);
+  const linkElement = getByText(label);
+  expect(linkElement).toBeInTheDocument();
+});
+
+it('will execute click', () => {
+  const button = render(<Button label={label} handleClick={console.log('bla')}/>);
+  act(() => {
+    button.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+  });
 });
