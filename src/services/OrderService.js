@@ -4,8 +4,8 @@ const axios = require('axios');
 const BACK_URL = 'http://lgmf-ecommerce-backend.herokuapp.com'
 
 const OrderService = {
-    getOrders: () => {
-        return axios.get(`${BACK_URL}/orders`);
+    getOrders: (token) => {
+        return axios.get(`${BACK_URL}/orders?token=${token}`);
     },
     
     saveOrder: (products, token) => {

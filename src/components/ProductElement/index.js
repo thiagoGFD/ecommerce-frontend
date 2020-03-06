@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import Button from "../Button";
 
 import { useTranslation } from 'react-i18next';
-import { CustomPlaceholder } from 'react-placeholder-image';
-
 
 function ProductElement({product}) {
   // TODO criar custom hook
@@ -21,7 +19,7 @@ function ProductElement({product}) {
 
   return (
     <li>
-      <CustomPlaceholder width={100} height={100} />
+      <img src={product.image.xs} alt={product.description} />
       <span>{product.name}</span>
       <Button label={t('productElement.add')} handleClick={()=>{addProduct(product)}}/>
     </li>
