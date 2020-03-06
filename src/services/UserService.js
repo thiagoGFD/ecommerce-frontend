@@ -9,6 +9,7 @@ const UserService = {
         // return axios.post('http://lgmf-ecommerce-backend.herokuapp.com/sign-in',{});
     },
     
+    // signIn: (username = 'shaun63', password = '4Tfw7YLa66G1nHm') => {
     signIn: (username = 'shaun63', password = '4Tfw7YLa66G1nHm') => {
         return axios.post(`${BACK_URL}/sign-in`,{
             username: username,

@@ -10,7 +10,7 @@ function OrderList() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    orderService.getOrders().then(({ data }) => {
+    orderService.getOrders('=TOKEN=').then(({ data }) => {
       setOrders(data);
     })
     .catch(function (error) {

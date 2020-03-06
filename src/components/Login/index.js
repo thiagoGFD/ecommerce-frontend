@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from "../Button";
 import { useTranslation } from 'react-i18next';
 
@@ -6,11 +6,13 @@ import userService from '../../services/UserService';
 
 function Login() {
   const { t } = useTranslation();
-
+  const [user, setUser] = useState({});
+  
   const signIn = () => {
     console.log('logiinnn ')
     userService.signIn().then(({data}) => {
       console.log('logou', data)
+      setUser(data);
     })
     .catch(function (error) {
       console.log(error);

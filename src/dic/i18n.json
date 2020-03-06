@@ -2,7 +2,8 @@
     "enUS": {
         "translation": {
           "welcome.title": "Welcome",
-          "welcome.linkProducts": "See products",
+          "welcome.linkProducts": "See Products",
+          "welcome.linkOrders": "Your Orders",
           "login.signin": "Sign In",
           "productsList.title": "Products",
           "productElement.add": "Add to Cart",
@@ -15,7 +16,8 @@
       "ptBR": {
         "translation": {
           "welcome.title": "Bem-vindo",
-          "welcome.linkProducts": "Ver produtos",
+          "welcome.linkProducts": "Ver Produtos",
+          "welcome.linkOrders": "Seus Pedidos",
           "login.signin": "Conectar",
           "productsList.title": "Produtos",
           "productElement.add": "Adicionar ao Carrinho",

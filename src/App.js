@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -19,17 +19,21 @@ import userService from './services/UserService';
 
 function App() {
   const { t } = useTranslation();
+  const [user] = useState({});
 
   return (
     <Router>
       <div style={{"backgroundColor": '#282c34', color:'white'}}>
         {/* <AuthButton /> */}
-        <p>
-          {t('welcome.title')}
-        </p>
-        <span>
+        <h1>
+          {t('welcome.title')}, <span>{user.firstName}</span>
+        </h1>
+        <nav>
           <Link to="/products" className="App-link">{t('welcome.linkProducts')}</Link>
-        </span>
+        </nav>
+        <nav>
+          <Link to="/orders" className="App-link">{t('welcome.linkOrders')}</Link>
+        </nav>
         <br/><span>
         <Link to="/login" className="App-link">vailogin REMOVER</Link>  
         </span>
