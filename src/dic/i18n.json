@@ -8,7 +8,8 @@
           "productElement.add": "Add to Cart",
           "cart.title": "Cart",
           "cart.checkout": "Checkout",
-          "cart.remove": "Remove"
+          "cart.remove": "Remove",
+          "orderList.title": "Orders"
         }
       },
       "ptBR": {
@@ -20,7 +21,8 @@
           "productElement.add": "Adicionar ao Carrinho",
           "cart.title": "Carrinho",
           "cart.checkout": "Comprar",
-          "cart.remove": "Remover"
+          "cart.remove": "Remover",
+          "orderList.title": "Pedidos"
         }
       }
 }

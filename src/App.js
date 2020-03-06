@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import Login from './components/Login';
 import ProductsList from './components/ProductsList';
 import Cart from './components/Cart';
+import OrderList from './components/OrderList';
 
 import userService from './services/UserService';
 
@@ -43,8 +44,11 @@ function App() {
           <Route path="/login">
             <Login/>
           </Route>
-          <PrivateRoute path="/cart">
+          <Route path="/cart">
             <Cart />
+          </Route>
+          <PrivateRoute path="/orders">
+            <OrderList />
           </PrivateRoute>
         </Switch>
       </div>
