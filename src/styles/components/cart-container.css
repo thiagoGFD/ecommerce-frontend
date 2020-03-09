@@ -1,0 +1,15 @@
+.cart-container {
+    display: inline-block;
+    position: relative;
+    background-color: #282c34;
+}
+
+.cart-container > .cart-dropdown {
+    position: absolute;
+    border: 1px solid bisque;
+    border-radius: 5px;
+    padding: 6px;
+}
+.cart-container > .cart-list {
+    font-size: 75%;
+}

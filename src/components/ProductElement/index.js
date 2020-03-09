@@ -1,21 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Button from "../Button";
 
 import { useTranslation } from 'react-i18next';
 
-function ProductElement({product}) {
-  // TODO criar custom hook
-  const [cartProducts, setCartProducts] = useState([]);
+function ProductElement({product, addProduct}) {
   const { t } = useTranslation();
-
-  const addProduct = (product) => {
-    console.log('product added ' , product)
-    setCartProducts([
-      ...cartProducts,
-      product
-    ]);
-  }
 
   return (
     <li>
