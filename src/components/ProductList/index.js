@@ -9,7 +9,7 @@ import { useCart } from '../../hooks/useCart';
 import Cart from '../Cart';
 import Dropdown from '../Dropdown';
 
-function ProductsList() {
+function ProductList() {
   const [products, setProducts] = useState([]);
   const { t } = useTranslation();
   const [cartProducts, addProduct, removeProduct] = useCart();
@@ -25,7 +25,7 @@ function ProductsList() {
 
   return (
     <div className="shopping-list">
-      <h1>{t('productsList.title')}</h1>
+      <h1>{t('productList.title')}</h1>
       <Dropdown label={t('cart.title')} startsOpen={cartProducts.length}>
         <Cart products={cartProducts} removeProduct={removeProduct} />
       </Dropdown>
@@ -38,4 +38,4 @@ function ProductsList() {
   );
 }
 
-export default ProductsList;
+export default ProductList;

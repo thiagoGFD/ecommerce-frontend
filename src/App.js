@@ -11,7 +11,7 @@ import {
 import { useTranslation } from 'react-i18next';
 
 import Login from './components/Login';
-import ProductsList from './components/ProductsList';
+import ProductList from './components/ProductList';
 import OrderList from './components/OrderList';
 
 import userService from './services/UserService';
@@ -39,7 +39,7 @@ function App() {
 
         <Switch>
           <Route path="/products">
-            <ProductsList />
+            <ProductList />
           </Route>
           <Route path="/login">
             <Login/>

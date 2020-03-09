@@ -22,9 +22,11 @@ function Login() {
   return (
     <React.Fragment>
       <h3>Sign In</h3>
-      <input label="name" type="text" />
-      <input label="password" type="text" />
-      <Button label={t('login.signin')} handleClick={()=>{signIn()}} />
+      <div className="login-container">
+        <input label="name" type="text" />
+        <input label="password" type="text" />
+        <Button label={t('login.signin')} handleClick={()=>{signIn()}} />
+      </div>
       
     </React.Fragment>
   );
