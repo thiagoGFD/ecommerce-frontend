@@ -20,7 +20,7 @@ function Cart({products, removeProduct}) {
   return (
     <div className="cart-container">
       <div className="cart-dropdown">
-        <h3>{t('cart.title')}</h3>
+        {/* <h3>{t('cart.title')}</h3> */}
         <ul className="cart-list no-list-style">
           {products.map(product => {
             return <li key={product._id}>

@@ -15,3 +15,9 @@
 .products-container > li > * {
     margin-bottom: 6px;
 }
+
+.shopping-list > .dropdown-container {
+    /* float: right;
+    right: 24px; */
+    left:24px;
+}

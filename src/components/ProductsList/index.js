@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { useCart } from '../../hooks/useCart';
 
 import Cart from '../Cart';
+import Dropdown from '../Dropdown';
 
 function ProductsList() {
   const [products, setProducts] = useState([]);
@@ -25,7 +26,9 @@ function ProductsList() {
   return (
     <div className="shopping-list">
       <h1>{t('productsList.title')}</h1>
-      <Cart products={cartProducts} removeProduct={removeProduct} />
+      <Dropdown label={t('cart.title')} startsOpen={cartProducts.length}>
+        <Cart products={cartProducts} removeProduct={removeProduct} />
+      </Dropdown>
       <ul className="products-container no-list-style">
         {products.map(product => {
           return <ProductElement product={product} key={product._id} addProduct={addProduct} />;
