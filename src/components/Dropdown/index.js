@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import '../Button';
 import Button from "../Button";
 
-import './Dropdown.css';
+import './Dropdown.scss';
 
 /* 
   Dropdown Component
