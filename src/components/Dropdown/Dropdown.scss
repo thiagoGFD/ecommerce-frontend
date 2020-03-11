@@ -1,16 +1,14 @@
 .dropdown-container {
     display: inline-block;
     position: relative;
-}
-
-.dropdown-container > .dropdown-floating {
-    position: absolute;
-    background-color: #282c34;
-    border: 1px solid bisque;
-    border-radius: 5px;
-    padding: 6px;
-}
-
-.dropdown-container > .dropdown-closed {
-    display: none !important;
+    > .dropdown-floating {
+        position: absolute;
+        background-color: #282c34;
+        border: 1px solid bisque;
+        border-radius: 5px;
+        padding: 6px;
+    }
+    > .dropdown-closed {
+        display: none !important;
+    }
 }

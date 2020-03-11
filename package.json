@@ -45,6 +45,7 @@
     "@storybook/addons": "^5.3.14",
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.14",
+    "enzyme": "^3.11.0",
     "eslint-plugin-react-hooks": "^2.5.0"
   }
 }
