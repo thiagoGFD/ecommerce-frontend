@@ -6,6 +6,11 @@ import { useTranslation } from 'react-i18next';
 
 import './Header.scss';
 
+/* 
+  Header Component
+  @param {user} user info
+  @returns the app header
+ */
 const Header = ({user}) => {
     const { t } = useTranslation();
     const getWelcomeMsg = () => {
