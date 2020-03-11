@@ -41,9 +41,9 @@ function App() {
         </SideMenu>
         <div>
           <Switch>
-            {/* <Route path="/">
+            <Route exact path="/">
               <Home />
-            </Route> */}
+            </Route>
             <Route path="/products">
               <ProductList />
             </Route>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useTranslation } from 'react-i18next';
 
@@ -18,7 +18,9 @@ const Header = ({user}) => {
 
     return (
         <div className="r-header">
-            <span className="header-logo">Logo</span>
+            <Link to="/">
+                <img className="header-logo" alt="logo" src="https://i0.wp.com/www.tweex.com.br/wp-content/uploads/2019/11/icon-omnichannel.png?ssl=1"/>
+            </Link>
             <h1>
                 {getWelcomeMsg()}
             </h1>
