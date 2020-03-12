@@ -19,9 +19,20 @@ import Header from './components/Header';
 import Home from './components/Home';
 import SideMenu from './components/SideMenu';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+
 function App() {
   const { t } = useTranslation();
   const [user] = useState({});
+
+  const getLink = (whereTo, text) => {
+    return (
+      <nav>
+        <Link to={whereTo} className="App-link">{text}</Link> <FontAwesomeIcon className="nav-arrow" icon={faChevronRight} />
+      </nav>
+    );
+  }
 
   return (
     <div className="app-main">
@@ -29,17 +40,13 @@ function App() {
       <Header user={user} />
       <div className="app-body">
         <SideMenu>
-          <nav>
-            <Link to="/products" className="App-link">{t('welcome.linkProducts')}</Link>
-          </nav>
-          <nav>
-            <Link to="/orders" className="App-link">{t('welcome.linkOrders')}</Link>
-          </nav>
+          {getLink('/products', t('welcome.linkProducts'))}
+          {getLink('/orders', t('welcome.linkOrders'))}
           <br/><span>
           <Link to="/login" className="App-link">vailogin REMOVER</Link>  
           </span>
         </SideMenu>
-        <div>
+        <div class="app-page-content">
           <Switch>
             <Route exact path="/">
               <Home />

@@ -12,5 +12,17 @@
             color: inherit !important;
             text-decoration: none;
         }
+        &:hover {
+            background-color: #53565d;
+            color: #ffedd9;
+            .nav-arrow {
+                display: inline-block;
+            }
+        }
+        > .nav-arrow {
+            display: none;
+            float: right;
+            margin-top: 2px;
+        }
     }
 }

@@ -6,8 +6,16 @@
     justify-content: space-between;
     border-bottom: 2px solid bisque;
     text-align: center;
-    > .header-logo {
-        background-color: darkgrey;
-        opacity: 0.3;
+    > a {
+        color: bisque !important;
+        text-decoration: none !important;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .header-siteName {
+            font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+            font-size: large;
+            margin-left: 6px;
+        }
     }
 }

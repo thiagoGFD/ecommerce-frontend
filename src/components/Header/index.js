@@ -25,6 +25,7 @@ const Header = ({user}) => {
         <div className="r-header">
             <Link to="/">
                 <img className="header-logo" alt="logo" src="https://i0.wp.com/www.tweex.com.br/wp-content/uploads/2019/11/icon-omnichannel.png?ssl=1"/>
+                <span className="header-siteName">MiscShop.com</span>
             </Link>
             <h1>
                 {getWelcomeMsg()}
