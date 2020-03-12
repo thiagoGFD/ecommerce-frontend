@@ -37,8 +37,8 @@ describe('Header', () => {
         const links = wrapper.find('Link');
         expect(links).toHaveLength(1);
 
-        // const userInfo = wrapper.find('.header-user-info');
-        // expect(userInfo).toHaveLength(1);
-        // expect(userInfo.text()).toContain(personName);
+        const userInfo = wrapper.find('.header-user-info');
+        expect(userInfo).toHaveLength(1);
+        expect(userInfo.text()).toContain(personName);
     }); 
   });

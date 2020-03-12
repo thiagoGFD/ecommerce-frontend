@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.scss';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,6 +6,10 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from './configure-store';
+
+import './App.scss';
 
 import { useTranslation } from 'react-i18next';
 
@@ -36,33 +39,35 @@ function App() {
   }
 
   return (
-    <div className="app-main">
-    <Router>
-      <Header user={user} />
-      <div className="app-body">
-        <SideMenu>
-          {getLink('/products', t('welcome.linkProducts'), faShoppingCart)}
-          {getLink('/orders', t('welcome.linkOrders'), faShoppingBag)}
-        </SideMenu>
-        <div className="app-page-content">
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/products">
-              <ProductList />
-            </Route>
-            <Route path="/login">
-              <Login/>
-            </Route>
-            <PrivateRoute path="/orders">
-              <OrderList />
-            </PrivateRoute>
-          </Switch>
+    <Provider store={store}>
+      <div className="app-main">
+        <Router>
+          <Header user={user} />
+          <div className="app-body">
+            <SideMenu>
+              {getLink('/products', t('welcome.linkProducts'), faShoppingCart)}
+              {getLink('/orders', t('welcome.linkOrders'), faShoppingBag)}
+            </SideMenu>
+            <div className="app-page-content">
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route path="/products">
+                  <ProductList />
+                </Route>
+                <Route path="/login">
+                  <Login/>
+                </Route>
+                <PrivateRoute path="/orders">
+                  <OrderList />
+                </PrivateRoute>
+              </Switch>
+            </div>
+          </div>
+          </Router>
         </div>
-      </div>
-      </Router>
-    </div>
+    </Provider>
   );
 }
 

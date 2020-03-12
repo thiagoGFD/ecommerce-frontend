@@ -1,23 +1,16 @@
 import React, { useState } from 'react';
-import Button from "../Button";
+import { connect } from "react-redux";
+
 import { useTranslation } from 'react-i18next';
 
-import userService from '../../services/UserService';
+import Button from "../Button";
 
-function Login() {
+const Login = ({user, dispatch}) => {
   const { t } = useTranslation();
-  const [user, setUser] = useState({});
   const [data, setData] = useState({username: null, password: null});
   
   const signIn = () => {
-    console.log('logiinnn ')
-    userService.signIn(data.username, data.password).then(({data}) => {
-      console.log('logou', data)
-      setUser(data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    dispatch({type: "LOGIN", data: data})
   }
 
   const handleChange = (e) => {
@@ -27,7 +20,8 @@ function Login() {
 
   return (
     <React.Fragment>
-      <h3>Sign In</h3>
+      <h2>Sign In</h2>
+      {user ? user.firstName:'asd'}
       <div className="login-container">
         <div className="form-group">
           <label>{t('login.username')}</label>
@@ -43,5 +37,7 @@ function Login() {
     </React.Fragment>
   );
 }
-
-export default Login;
+const mapStateToProps = state => ({
+  user: state.user  
+  });
+export default connect(mapStateToProps)(Login);

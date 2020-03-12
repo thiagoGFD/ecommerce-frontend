@@ -2,7 +2,11 @@ import React from 'react';
 
 import { Link } from "react-router-dom";
 
+import { connect } from "react-redux";
+
 import { useTranslation } from 'react-i18next';
+
+import Button from "../Button";
 
 import './Header.scss';
 
@@ -14,7 +18,7 @@ import './Header.scss';
 const Header = ({user}) => {
     const { t } = useTranslation();
     const getUserInfo = () => {
-        return `<span className="header-user-info">${user.firstName}</span>`;
+        return <span className="header-user-info">`${user.firstName}`</span>;
     }
 
     return (
@@ -28,8 +32,11 @@ const Header = ({user}) => {
             </h1>
             <div>
                 {(!user || !user.token) && 
-                    <Link to="/login">Login?</Link>
+                    <Link to="/login">
+                        <Button label="Login" />
+                    </Link>
                 }
+                
                 {user && !!user.token &&
                     getUserInfo()
                 }
@@ -38,4 +45,7 @@ const Header = ({user}) => {
     );
 }
 
-export default Header;
+const mapStateToProps = state => ({
+    user: state.user  
+    });
+export default connect(mapStateToProps)(Header);
