@@ -1,0 +1,28 @@
+.sidemenu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 !important;
+    border-right: 2px solid bisque;
+    color: bisque;
+    nav {
+        border-bottom: 1px outset bisque;
+        padding: 6px;
+        > a {
+            color: inherit !important;
+            text-decoration: none;
+        }
+        &:hover {
+            background-color: #53565d;
+            color: #ffedd9;
+            .nav-arrow {
+                display: inline-block;
+            }
+        }
+        > .nav-arrow {
+            display: none;
+            float: right;
+            margin-top: 2px;
+        }
+    }
+}

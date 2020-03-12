@@ -1,0 +1,16 @@
+.app-main {
+  background-color: #282c34;
+  color: bisque;
+  > .app-body {
+    display: flex;
+    flex-direction: row;
+    > * {
+      padding: 12px;
+      min-height: 500px;
+    }
+    > .app-page-content {
+      width: 90%;
+    }
+  }
+}
+  

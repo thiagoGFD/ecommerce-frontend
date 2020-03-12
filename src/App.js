@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './App.scss';
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,41 +15,56 @@ import ProductList from './components/ProductList';
 import OrderList from './components/OrderList';
 
 import userService from './services/UserService';
+import Header from './components/Header';
+import Home from './components/Home';
+import SideMenu from './components/SideMenu';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
   const { t } = useTranslation();
   const [user] = useState({});
 
-  return (
-    <Router>
-      <div style={{"backgroundColor": '#282c34', color:'white'}}>
-        {/* <AuthButton /> */}
-        <h1>
-          {t('welcome.title')}, <span>{user.firstName}</span>
-        </h1>
-        <nav>
-          <Link to="/products" className="App-link">{t('welcome.linkProducts')}</Link>
-        </nav>
-        <nav>
-          <Link to="/orders" className="App-link">{t('welcome.linkOrders')}</Link>
-        </nav>
-        <br/><span>
-        <Link to="/login" className="App-link">vailogin REMOVER</Link>  
-        </span>
+  const getLink = (whereTo, text) => {
+    return (
+      <nav>
+        <Link to={whereTo} className="App-link">{text}</Link> <FontAwesomeIcon className="nav-arrow" icon={faChevronRight} />
+      </nav>
+    );
+  }
 
-        <Switch>
-          <Route path="/products">
-            <ProductList />
-          </Route>
-          <Route path="/login">
-            <Login/>
-          </Route>
-          <PrivateRoute path="/orders">
-            <OrderList />
-          </PrivateRoute>
-        </Switch>
+  return (
+    <div className="app-main">
+    <Router>
+      <Header user={user} />
+      <div className="app-body">
+        <SideMenu>
+          {getLink('/products', t('welcome.linkProducts'))}
+          {getLink('/orders', t('welcome.linkOrders'))}
+          <br/><span>
+          <Link to="/login" className="App-link">vailogin REMOVER</Link>  
+          </span>
+        </SideMenu>
+        <div class="app-page-content">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/products">
+              <ProductList />
+            </Route>
+            <Route path="/login">
+              <Login/>
+            </Route>
+            <PrivateRoute path="/orders">
+              <OrderList />
+            </PrivateRoute>
+          </Switch>
+        </div>
       </div>
-    </Router>
+      </Router>
+    </div>
   );
 }
 
