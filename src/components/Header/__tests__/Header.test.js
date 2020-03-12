@@ -17,6 +17,9 @@ describe('Header', () => {
         const text = wrapper.find('h1');
         expect(text).toHaveLength(1);
         expect(text.text()).toEqual('welcome.title');
+
+        const links = wrapper.find('Link');
+        expect(links).toHaveLength(2);
     });
 
     it('should render with user', () => {
@@ -30,6 +33,12 @@ describe('Header', () => {
         const text = wrapper.find('h1');
         expect(text).toHaveLength(1);
         expect(text.text()).toContain('welcome.title');
-        expect(text.text()).toContain(personName);
+
+        const links = wrapper.find('Link');
+        expect(links).toHaveLength(1);
+
+        // const userInfo = wrapper.find('.header-user-info');
+        // expect(userInfo).toHaveLength(1);
+        // expect(userInfo.text()).toContain(personName);
     }); 
   });

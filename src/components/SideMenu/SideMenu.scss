@@ -5,9 +5,13 @@
     padding: 0 !important;
     border-right: 2px solid bisque;
     color: bisque;
+    width: 10%;
     nav {
         border-bottom: 1px outset bisque;
         padding: 6px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
         > a {
             color: inherit !important;
             text-decoration: none;
@@ -16,11 +20,11 @@
             background-color: #53565d;
             color: #ffedd9;
             .nav-arrow {
-                display: inline-block;
+                visibility: inherit;
             }
         }
         > .nav-arrow {
-            display: none;
+            visibility: hidden;
             float: right;
             margin-top: 2px;
         }

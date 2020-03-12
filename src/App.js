@@ -19,16 +19,17 @@ import Header from './components/Header';
 import Home from './components/Home';
 import SideMenu from './components/SideMenu';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight, faShoppingCart, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   const { t } = useTranslation();
   const [user] = useState({});
 
-  const getLink = (whereTo, text) => {
+  const getLink = (whereTo, text, faIcon) => {
     return (
       <nav>
+        <FontAwesomeIcon icon={faIcon} />
         <Link to={whereTo} className="App-link">{text}</Link> <FontAwesomeIcon className="nav-arrow" icon={faChevronRight} />
       </nav>
     );
@@ -40,13 +41,10 @@ function App() {
       <Header user={user} />
       <div className="app-body">
         <SideMenu>
-          {getLink('/products', t('welcome.linkProducts'))}
-          {getLink('/orders', t('welcome.linkOrders'))}
-          <br/><span>
-          <Link to="/login" className="App-link">vailogin REMOVER</Link>  
-          </span>
+          {getLink('/products', t('welcome.linkProducts'), faShoppingCart)}
+          {getLink('/orders', t('welcome.linkOrders'), faShoppingBag)}
         </SideMenu>
-        <div class="app-page-content">
+        <div className="app-page-content">
           <Switch>
             <Route exact path="/">
               <Home />

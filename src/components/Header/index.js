@@ -13,12 +13,8 @@ import './Header.scss';
  */
 const Header = ({user}) => {
     const { t } = useTranslation();
-    const getWelcomeMsg = () => {
-        let msg = t("welcome.title");
-        if(!!user && !!user.token) {
-            msg += `, <span>${user.firstName}</span>`;
-        }
-        return msg;
+    const getUserInfo = () => {
+        return `<span className="header-user-info">${user.firstName}</span>`;
     }
 
     return (
@@ -28,8 +24,16 @@ const Header = ({user}) => {
                 <span className="header-siteName">MiscShop.com</span>
             </Link>
             <h1>
-                {getWelcomeMsg()}
+                {t("welcome.title")}
             </h1>
+            <div>
+                {(!user || !user.token) && 
+                    <Link to="/login">Login?</Link>
+                }
+                {user && !!user.token &&
+                    getUserInfo()
+                }
+            </div>
         </div>
     );
 }
