@@ -18,7 +18,7 @@ import './Header.scss';
 const Header = ({user}) => {
     const { t } = useTranslation();
     const getUserInfo = () => {
-        return <span className="header-user-info">`${user.firstName}`</span>;
+        return <span className="header-user-info">{user.firstName}</span>;
     }
 
     return (
@@ -45,7 +45,11 @@ const Header = ({user}) => {
     );
 }
 
-const mapStateToProps = state => ({
-    user: state.user  
-    });
+function mapStateToProps(state) {
+    const { authentication } = state;
+    const { user } = authentication;
+    return {
+        user
+    };
+}
 export default connect(mapStateToProps)(Header);

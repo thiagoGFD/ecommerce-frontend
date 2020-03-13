@@ -1,15 +1,17 @@
 import React from 'react';
+
+import { connect } from "react-redux";
 import Button from "../Button";
 import { useTranslation } from 'react-i18next';
 
 import orderService from '../../services/OrderService';
 
-function Cart({products, removeProduct}) {
+function Cart({products, removeProduct, user}) {
   const { t } = useTranslation();
 
   const checkout = () => {
     console.log('checkout! ')
-    orderService.saveOrder(products, '=TOKEN=').then(({data}) => {
+    orderService.saveOrder(products, user.token).then(({data}) => {
       console.log('fechou', data)
     })
     .catch(function (error) {
@@ -35,4 +37,11 @@ function Cart({products, removeProduct}) {
   );
 }
 
-export default Cart;
+function mapStateToProps(state) {
+  const { authentication } = state;
+  const { user } = authentication;
+  return {
+      user
+  };
+}
+export default connect(mapStateToProps)(Cart);

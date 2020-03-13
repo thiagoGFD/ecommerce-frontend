@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
+import { connect } from "react-redux";
+
 import ProductElement from "../ProductElement";
 import orderService from '../../services/OrderService';
 
 import { useTranslation } from 'react-i18next';
 
-function OrderList() {
+function OrderList({user}) {
   const [orders, setOrders] = useState([]);
   const { t } = useTranslation();
 
   useEffect(() => {
-    orderService.getOrders('=TOKEN=').then(({ data }) => {
+    orderService.getOrders(user.token).then(({ data }) => {
       setOrders(data);
     })
     .catch(function (error) {
       console.log(error);
     });
-  }, []);
+  }, [user]);
 
   return (
     <div className="orders-list">
@@ -32,4 +34,11 @@ function OrderList() {
   );
 }
 
-export default OrderList;
+function mapStateToProps(state) {
+  const { authentication } = state;
+  const { user } = authentication;
+  return {
+      user
+  };
+}
+export default connect(mapStateToProps)(OrderList);

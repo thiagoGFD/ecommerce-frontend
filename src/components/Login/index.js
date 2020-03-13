@@ -5,12 +5,15 @@ import { useTranslation } from 'react-i18next';
 
 import Button from "../Button";
 
-const Login = ({user, dispatch}) => {
+import { userActions } from '../../actions/userActions';
+
+const Login = ({loggingIn, login, logout}) => {
   const { t } = useTranslation();
   const [data, setData] = useState({username: null, password: null});
   
   const signIn = () => {
-    dispatch({type: "LOGIN", data: data})
+    const { username, password } = data;
+    login(username, password);
   }
 
   const handleChange = (e) => {
@@ -21,7 +24,7 @@ const Login = ({user, dispatch}) => {
   return (
     <React.Fragment>
       <h2>Sign In</h2>
-      {user ? user.firstName:'asd'}
+      {loggingIn ? 'Loading...':''}
       <div className="login-container">
         <div className="form-group">
           <label>{t('login.username')}</label>
@@ -37,7 +40,15 @@ const Login = ({user, dispatch}) => {
     </React.Fragment>
   );
 }
-const mapStateToProps = state => ({
-  user: state.user  
-  });
-export default connect(mapStateToProps)(Login);
+
+const mapStateToProps = state => {
+  const { loggingIn } = state.authentication;
+  return { loggingIn };
+};
+
+const actionCreators = {
+  login: userActions.login,
+  logout: userActions.logout
+};
+
+export default connect(mapStateToProps, actionCreators)(Login);
