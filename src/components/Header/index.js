@@ -18,7 +18,7 @@ import './Header.scss';
 const Header = ({user}) => {
     const { t } = useTranslation();
     const getUserInfo = () => {
-        return <span className="header-user-info">{user.firstName}</span>;
+        return <span className="header-user-info">{`${user.firstName} ${user.lastName}`}</span>;
     }
 
     return (

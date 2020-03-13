@@ -4,10 +4,11 @@ import { connect } from "react-redux";
 import { useTranslation } from 'react-i18next';
 
 import Button from "../Button";
+import Loading from "../Loading";
 
 import { userActions } from '../../actions/userActions';
 
-const Login = ({loggingIn, login, logout}) => {
+const Login = ({user, loggingIn, login, logout}) => {
   const { t } = useTranslation();
   const [data, setData] = useState({username: null, password: null});
   
@@ -24,26 +25,28 @@ const Login = ({loggingIn, login, logout}) => {
   return (
     <React.Fragment>
       <h2>Sign In</h2>
-      {loggingIn ? 'Loading...':''}
-      <div className="login-container">
-        <div className="form-group">
-          <label>{t('login.username')}</label>
-          <input type="text" name="username" onChange={handleChange} />
+        <div className="login-container">
+          <div className="form-group">
+            <label>{t('login.username')}</label>
+            <input type="text" name="username" onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>{t('login.password')}</label>
+            <input type="password" name="password" onChange={handleChange} />
+          </div>
+          <Loading isLoading={loggingIn} />
+          {!loggingIn && 
+            <Button label={t('login.signin')} handleClick={()=>{signIn()}} />
+          }
         </div>
-        <div className="form-group">
-          <label>{t('login.password')}</label>
-          <input type="password" name="password" onChange={handleChange} />
-        </div>
-        <Button label={t('login.signin')} handleClick={()=>{signIn()}} />
-      </div>
       
     </React.Fragment>
   );
 }
 
 const mapStateToProps = state => {
-  const { loggingIn } = state.authentication;
-  return { loggingIn };
+  const { user, loggingIn } = state.authentication;
+  return { user, loggingIn };
 };
 
 const actionCreators = {
