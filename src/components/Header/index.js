@@ -1,8 +1,6 @@
 import React from 'react';
-
 import { Link } from "react-router-dom";
-
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { useTranslation } from 'react-i18next';
 
@@ -15,8 +13,9 @@ import './Header.scss';
   @param {user} user info
   @returns the app header
  */
-const Header = ({user}) => {
+const Header = () => {
     const { t } = useTranslation();
+    const {user} = useSelector(state => state.authentication);
     const getUserInfo = () => {
         return <span className="header-user-info">{`${user.firstName} ${user.lastName}`}</span>;
     }
@@ -45,11 +44,4 @@ const Header = ({user}) => {
     );
 }
 
-function mapStateToProps(state) {
-    const { authentication } = state;
-    const { user } = authentication;
-    return {
-        user
-    };
-}
-export default connect(mapStateToProps)(Header);
+export default Header;

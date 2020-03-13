@@ -3,8 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  Redirect
+  Link
 } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from './configure-store';
@@ -17,10 +16,10 @@ import Login from './components/Login';
 import ProductList from './components/ProductList';
 import OrderList from './components/OrderList';
 
-import userService from './services/UserService';
 import Header from './components/Header';
 import Home from './components/Home';
 import SideMenu from './components/SideMenu';
+import PrivateRoute from './components/PrivateRoute';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faShoppingCart, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
@@ -68,28 +67,6 @@ function App() {
           </Router>
         </div>
     </Provider>
-  );
-}
-
-// A wrapper for <Route> that redirects to the login
-// screen if you're not yet authenticated.
-function PrivateRoute({ children, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={({ location }) =>
-        userService.isAuth() ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: location }
-            }}
-          />
-        )
-      }
-    />
   );
 }
 

@@ -1,13 +1,15 @@
 import React from 'react';
+import { useSelector } from "react-redux";
 
-import { connect } from "react-redux";
-import Button from "../Button";
 import { useTranslation } from 'react-i18next';
+
+import Button from "../Button";
 
 import orderService from '../../services/OrderService';
 
-function Cart({products, removeProduct, user}) {
+function Cart({products, removeProduct}) {
   const { t } = useTranslation();
+  const {user} = useSelector(state => state.authentication)
 
   const checkout = () => {
     console.log('checkout! ')
@@ -37,11 +39,4 @@ function Cart({products, removeProduct, user}) {
   );
 }
 
-function mapStateToProps(state) {
-  const { authentication } = state;
-  const { user } = authentication;
-  return {
-      user
-  };
-}
-export default connect(mapStateToProps)(Cart);
+export default Cart;

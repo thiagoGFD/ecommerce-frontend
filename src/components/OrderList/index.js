@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 import ProductElement from "../ProductElement";
 import orderService from '../../services/OrderService';
 
 import { useTranslation } from 'react-i18next';
 
-function OrderList({user}) {
+function OrderList() {
   const [orders, setOrders] = useState([]);
   const { t } = useTranslation();
+  const {user} = useSelector(state => state.authentication);
 
   useEffect(() => {
     orderService.getOrders(user.token).then(({ data }) => {
@@ -34,11 +34,4 @@ function OrderList({user}) {
   );
 }
 
-function mapStateToProps(state) {
-  const { authentication } = state;
-  const { user } = authentication;
-  return {
-      user
-  };
-}
-export default connect(mapStateToProps)(OrderList);
+export default OrderList;

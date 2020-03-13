@@ -13,7 +13,6 @@ const login = (username, password) => {
         return { type: userConstants.LOGIN_FAILURE, user }
     };
 
-    console.log("login action hey")
     return dispatch => {
         dispatch(request({username}));
 
